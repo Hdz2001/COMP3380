@@ -1,4 +1,15 @@
+use cs3380;
+
 -- clean up
+-- Order matters!
+drop table if exists Route;
+drop table if exists Bus;
+drop table if exists BusStop;
+drop table if exists Schedule;
+drop table if exists RouteBus;
+drop table if exists Activity;
+drop table if exists Arrive;
+drop table if exists PassUp;
 
 -- Route Table
 CREATE TABLE Route (
@@ -8,7 +19,7 @@ CREATE TABLE Route (
 
 -- Bus Table
 CREATE TABLE Bus (
-    busNum INT PRIMARY KEY,
+    busNum VARCHAR(255) PRIMARY KEY,
     destination VARCHAR(255) NOT NULL
 );
 
@@ -51,7 +62,7 @@ CREATE TABLE Activity (
 
 -- Arrive Table
 CREATE TABLE Arrive (
-    busNum INT,
+    busNum VARCHAR(255),
     stopNum INT,
     scheTime DATETIME,
     deviation INT,

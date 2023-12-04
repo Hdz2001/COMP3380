@@ -1,1 +1,1 @@
-Instructin to run the project: 
+Instructions to run the project: 

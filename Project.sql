@@ -6638,7 +6638,6 @@ INSERT INTO PassUp(routeNum,location,time,type) VALUES (75,'POINT (-97.137484726
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (72,'POINT (-97.150852741628 49.797116737148)','11/18/2014 09:28:29 AM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (15,'POINT (-97.150783784191 49.896250383353)','04/18/2023 04:11:07 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (22,'POINT (-97.158987572558 49.888510332153)','09/07/2023 05:37:38 PM','Full Bus Pass-Up');
-INSERT INTO PassUp(routeNum,location,time,type) VALUES (NULL,NULL,'12/10/2009 12:01:35 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (65,'POINT (-97.132812899424 49.882748607333)','05/20/2015 04:38:39 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (137,'POINT (-97.133836622418 49.886525020014)','12/20/2018 05:10:37 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (19,'POINT (-97.160319345974 49.901817093084)','01/28/2019 01:42:15 PM','Full Bus Pass-Up');
@@ -6694,7 +6693,6 @@ INSERT INTO PassUp(routeNum,location,time,type) VALUES (21,'POINT (-97.158024423
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (32,'POINT (-97.129223375237 49.919417394961)','12/01/2016 04:11:04 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (75,'POINT (-97.132997027479 49.807930378374)','09/26/2016 01:34:03 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (28,'POINT (-97.168264872234 49.904191658027)','03/27/2013 04:46:45 PM','Full Bus Pass-Up');
-INSERT INTO PassUp(routeNum,location,time,type) VALUES (NULL,'POINT (-97.131714973276 49.808377459182)','09/12/2012 01:25:59 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (170,'POINT (-97.15705821751 49.803134418997)','09/08/2019 07:42:24 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (28,'POINT (-97.171273961697 49.905273587168)','01/07/2010 07:37:42 AM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (16,'POINT (-97.148876546737 49.8889609658)','09/19/2019 04:14:24 PM','Full Bus Pass-Up');
@@ -6727,7 +6725,6 @@ INSERT INTO PassUp(routeNum,location,time,type) VALUES (162,'POINT (-97.13433863
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (47,'POINT (-97.071876394046 49.898940566684)','11/28/2018 05:07:13 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (75,'POINT (-97.130571805404 49.808826766947)','09/07/2023 04:01:06 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (60,'POINT (-97.152393811609 49.817596252214)','09/16/2022 04:30:49 PM','Full Bus Pass-Up');
-INSERT INTO PassUp(routeNum,location,time,type) VALUES (NULL,'POINT (-97.106368572898 49.905023107334)','09/21/2010 04:45:11 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (57,'POINT (-97.128127615423 49.88115287504)','10/06/2015 05:11:38 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (36,'POINT (-97.160653107809 49.887547321499)','10/28/2014 09:21:08 AM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (1,'POINT (-97.130626913794 49.887804566063)','06/16/2010 01:14:49 PM','Full Bus Pass-Up');
@@ -6807,7 +6804,6 @@ INSERT INTO PassUp(routeNum,location,time,type) VALUES (38,'POINT (-97.143167922
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (183,'POINT (-97.136575927732 49.879741855179)','05/03/2018 05:21:33 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (67,'POINT (-97.205567694847 49.879616138056)','03/05/2014 06:07:46 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (3,'POINT (-97.145282704265 49.900992817548)','12/09/2015 12:47:22 PM','Wheelchair User Pass-Up');
-INSERT INTO PassUp(routeNum,location,time,type) VALUES (NULL,'POINT (-97.137092127299 49.892729986504)','07/31/2020 04:37:03 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (14,'POINT (-97.112134007664 49.852217158605)','10/04/2017 02:48:02 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (21,'POINT (-97.16250466672 49.887549702237)','08/07/2018 02:56:17 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (16,'POINT (-97.175684316889 49.929017802723)','06/14/2013 12:27:32 PM','Full Bus Pass-Up');
@@ -6822,13 +6818,11 @@ INSERT INTO PassUp(routeNum,location,time,type) VALUES (33,'POINT (-97.155969989
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (11,'POINT (-97.13742029686 49.900479971389)','05/27/2011 04:15:30 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (19,'POINT (-97.179083782134 49.907582298353)','02/06/2018 03:43:59 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (160,'POINT (-97.136640990467 49.806783692598)','02/10/2014 12:30:38 PM','Full Bus Pass-Up');
-INSERT INTO PassUp(routeNum,location,time,type) VALUES (NULL,'POINT (-97.156735642426 49.889149170422)','12/26/2009 10:38:29 AM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (21,'POINT (-97.157708388237 49.888831819179)','09/19/2011 12:32:18 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (161,'POINT (-97.135680347862 49.889981795878)','01/29/2016 08:40:57 AM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (21,'POINT (-97.158859951666 49.888571270253)','09/15/2011 03:36:48 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (75,'POINT (-97.139656357239 49.80716497036)','10/09/2012 11:22:02 AM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (36,'POINT (-97.139591729552 49.807038000617)','01/24/2012 04:45:53 PM','Full Bus Pass-Up');
-INSERT INTO PassUp(routeNum,location,time,type) VALUES (NULL,'POINT (-97.15258650008 49.816187091247)','03/17/2014 07:38:15 AM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (18,'POINT (-97.135236102745 49.903674066437)','02/04/2011 03:37:26 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (170,'POINT (-97.150663859148 49.836350432474)','07/29/2018 02:39:04 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (170,'POINT (-97.152003696751 49.827835460787)','05/28/2017 02:34:49 PM','Full Bus Pass-Up');
@@ -6869,7 +6863,6 @@ INSERT INTO PassUp(routeNum,location,time,type) VALUES (19,'POINT (-97.135238153
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (75,'POINT (-97.131392714294 49.808444223291)','01/06/2016 02:15:26 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (21,'POINT (-97.154753169701 49.889657329658)','08/25/2020 02:31:32 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (14,'POINT (-97.155596743626 49.892729058939)','12/07/2016 04:52:44 PM','Full Bus Pass-Up');
-INSERT INTO PassUp(routeNum,location,time,type) VALUES (NULL,'POINT (-97.13658784517 49.806719871823)','09/27/2023 12:32:35 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (78,'POINT (-97.13677118192 49.806650859245)','03/13/2018 03:48:38 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (47,'POINT (-97.134531223088 49.904256396446)','11/29/2018 01:27:15 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (170,'POINT (-97.131967431152 49.808318563914)','09/10/2019 08:52:56 PM','Full Bus Pass-Up');
@@ -6877,12 +6870,10 @@ INSERT INTO PassUp(routeNum,location,time,type) VALUES (65,'POINT (-97.136770909
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (21,'POINT (-97.230784339203 49.877116388602)','05/06/2013 04:17:54 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (47,'POINT (-97.135872646029 49.902335052316)','02/23/2010 02:40:24 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (162,'POINT (-97.151114483569 49.832192894528)','04/28/2017 03:22:50 PM','Full Bus Pass-Up');
-INSERT INTO PassUp(routeNum,location,time,type) VALUES (NULL,'POINT (-97.134153556177 49.886970878839)','01/11/2018 05:03:08 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (17,'POINT (-97.145474399294 49.897083055626)','01/16/2014 05:21:30 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (75,'POINT (-97.110533701379 49.832248901089)','11/21/2019 10:46:06 AM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (14,'POINT (-97.120451512089 49.87628825986)','11/10/2016 09:29:28 AM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (54,'POINT (-97.123527332882 49.877372528877)','12/17/2013 04:12:10 PM','Full Bus Pass-Up');
-INSERT INTO PassUp(routeNum,location,time,type) VALUES (NULL,'POINT (-97.134540286592 49.904382472445)','03/04/2010 02:45:16 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (78,'POINT (-97.134981190469 49.807296694555)','03/04/2011 12:23:11 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (58,'POINT (-97.148480416111 49.881848569243)','12/12/2012 05:03:44 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (17,'POINT (-97.149258436805 49.90227068384)','10/01/2014 04:13:10 PM','Full Bus Pass-Up');
@@ -6945,11 +6936,9 @@ INSERT INTO PassUp(routeNum,location,time,type) VALUES (18,'POINT (-97.136645274
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (14,'POINT (-97.168322107242 49.893119730133)','01/20/2023 03:35:01 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (11,'POINT (-97.137730213593 49.900026204807)','11/10/2011 03:12:11 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (51,'POINT (-97.132167093479 49.808186855781)','09/24/2013 02:36:01 PM','Full Bus Pass-Up');
-INSERT INTO PassUp(routeNum,location,time,type) VALUES (NULL,'POINT (-97.158859951666 49.888571270253)','06/17/2012 10:15:20 AM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (15,'POINT (-97.143429722438 49.893758150921)','06/14/2019 04:17:24 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (137,'POINT (-97.150664241462 49.855294074104)','12/03/2019 08:02:32 AM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (32,'POINT (-97.133636992675 49.9075791516)','11/15/2016 04:55:23 PM','Full Bus Pass-Up');
-INSERT INTO PassUp(routeNum,location,time,type) VALUES (NULL,'POINT (-97.157189126695 49.789436899451)','11/23/2010 03:46:01 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (72,'POINT (-97.154239658378 49.790271468614)','01/27/2016 09:14:27 AM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (18,'POINT (-97.131136601153 49.917496337648)','09/30/2015 08:03:03 AM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (24,'POINT (-97.2059589732 49.883705916547)','07/09/2019 02:14:11 PM','Full Bus Pass-Up');
@@ -6983,7 +6972,6 @@ INSERT INTO PassUp(routeNum,location,time,type) VALUES (18,'POINT (-97.149450871
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (160,'POINT (-97.142080494746 49.809920401328)','01/14/2016 04:11:30 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (160,'POINT (-97.139460062458 49.806846988281)','01/21/2019 02:29:17 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (19,'POINT (-97.150661996443 49.893244107081)','11/03/2010 07:35:39 AM','Full Bus Pass-Up');
-INSERT INTO PassUp(routeNum,location,time,type) VALUES (NULL,'POINT (-97.147011757173 49.815099611336)','11/01/2018 06:03:07 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (55,'POINT (-97.106560322156 49.858494760017)','12/07/2010 03:18:48 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (19,'POINT (-97.152587832476 49.899328454591)','04/03/2013 07:39:35 AM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (24,'POINT (-97.169671143378 49.885432322383)','09/22/2015 09:30:08 AM','Full Bus Pass-Up');
@@ -6991,14 +6979,12 @@ INSERT INTO PassUp(routeNum,location,time,type) VALUES (44,'POINT (-97.111428381
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (75,'POINT (-97.078537428527 49.860606138322)','11/29/2018 09:18:17 AM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (32,'POINT (-97.134661689857 49.904123570665)','12/19/2016 05:05:40 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES ('BLUE','POINT (-97.132108649744 49.883321938314)','08/01/2023 04:26:06 PM','Full Bus Pass-Up');
-INSERT INTO PassUp(routeNum,location,time,type) VALUES (NULL,'POINT (-97.078474317425 49.860793989475)','03/20/2018 02:45:41 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (21,'POINT (-97.158915607924 49.88857215425)','11/26/2014 04:17:07 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (160,'POINT (-97.131265273032 49.808505133831)','03/03/2014 09:25:47 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (11,'POINT (-97.152451836414 49.890493188931)','10/28/2011 06:51:29 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (14,'POINT (-97.134913916611 49.889276849165)','03/16/2011 02:55:27 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (16,'POINT (-97.132675873557 49.911548461539)','10/08/2013 03:13:33 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (19,'POINT (-97.121663407544 49.882361579056)','11/19/2015 07:51:22 AM','Full Bus Pass-Up');
-INSERT INTO PassUp(routeNum,location,time,type) VALUES (NULL,'POINT (-97.131462168626 49.808445343456)','10/26/2016 02:30:43 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES ('BLUE','POINT (-97.157503647895 49.809339147024)','04/06/2023 07:27:25 AM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (36,'POINT (-97.156419630645 49.861628340926)','09/27/2016 08:07:40 AM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (22,'POINT (-97.144458652199 49.893432815138)','09/23/2016 04:11:20 PM','Wheelchair User Pass-Up');
@@ -7051,16 +7037,13 @@ INSERT INTO PassUp(routeNum,location,time,type) VALUES (160,'POINT (-97.13120693
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (18,'POINT (-97.133644279331 49.90739037376)','03/09/2018 05:11:32 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (11,'POINT (-97.142918759237 49.894010821681)','05/01/2018 10:20:16 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (162,'POINT (-97.157443655035 49.797374667014)','12/22/2018 04:35:05 PM','Full Bus Pass-Up');
-INSERT INTO PassUp(routeNum,location,time,type) VALUES (NULL,'POINT (-97.13209792684 49.883960413476)','09/27/2016 09:18:07 AM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (44,'POINT (-97.134528795634 49.904319322459)','11/27/2018 04:19:56 PM','Full Bus Pass-Up');
-INSERT INTO PassUp(routeNum,location,time,type) VALUES (NULL,'POINT (-97.150857296317 49.900155388277)','01/30/2018 05:57:36 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (75,'POINT (-97.112904526712 49.831361037527)','09/13/2019 11:10:09 AM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (11,'POINT (-97.163273415085 49.88710314041)','03/18/2016 04:38:34 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (75,'POINT (-97.117639288627 49.829755961199)','10/16/2012 09:23:06 AM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (21,'POINT (-97.158720811033 49.888569060143)','05/14/2013 04:49:22 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (16,'POINT (-97.135751600496 49.902584966126)','05/27/2015 04:39:21 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (15,'POINT (-97.172554032135 49.896829494026)','04/05/2011 03:45:15 PM','Full Bus Pass-Up');
-INSERT INTO PassUp(routeNum,location,time,type) VALUES (NULL,'POINT (-97.199372655318 49.880383585763)','05/07/2018 07:23:48 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (160,'POINT (-97.152774684743 49.847744889039)','09/16/2014 01:14:53 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (75,'POINT (-97.115593151271 49.830523270068)','03/04/2020 07:42:07 AM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (21,'POINT (-97.15884843209 49.888508122199)','01/28/2016 05:26:27 PM','Full Bus Pass-Up');
@@ -7068,7 +7051,6 @@ INSERT INTO PassUp(routeNum,location,time,type) VALUES (75,'POINT (-97.135880892
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (19,'POINT (-97.155014354949 49.89887237441)','09/27/2022 05:23:33 PM','Wheelchair User Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (14,'POINT (-97.112267650927 49.851643649034)','12/11/2013 03:59:38 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (22,'POINT (-97.154316681237 49.889785305698)','01/07/2020 03:44:43 PM','Full Bus Pass-Up');
-INSERT INTO PassUp(routeNum,location,time,type) VALUES (NULL,'POINT (-97.135944983666 49.799936182145)','02/07/2017 09:39:35 AM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (162,'POINT (-97.151819034331 49.817722012082)','03/05/2019 09:15:10 AM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (47,'POINT (-97.135050954532 49.903419227704)','02/03/2017 03:18:42 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (34,'POINT (-97.150848050106 49.893112149995)','05/11/2016 04:50:41 PM','Full Bus Pass-Up');
@@ -7077,7 +7059,6 @@ INSERT INTO PassUp(routeNum,location,time,type) VALUES (76,'POINT (-97.150280607
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (21,'POINT (-97.204291711379 49.879866227061)','03/24/2016 04:32:41 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (28,'POINT (-97.17875207984 49.90751412306)','12/09/2016 04:50:54 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (185,'POINT (-97.14855420311 49.816572483827)','10/03/2019 10:51:22 AM','Full Bus Pass-Up');
-INSERT INTO PassUp(routeNum,location,time,type) VALUES (NULL,'POINT (-97.138057922618 49.89983357858)','09/28/2010 05:15:34 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (75,'POINT (-97.078789876635 49.856697445002)','05/01/2013 03:26:22 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (137,'POINT (-97.136843253045 49.891961409437)','06/03/2015 04:13:43 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (36,'POINT (-97.15680135968 49.862201100697)','11/05/2013 07:47:20 AM','Full Bus Pass-Up');
@@ -7092,7 +7073,6 @@ INSERT INTO PassUp(routeNum,location,time,type) VALUES (17,'POINT (-97.149449345
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (162,'POINT (-97.15225859531 49.819321158141)','05/09/2018 12:19:37 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (32,'POINT (-97.134859964111 49.903677010328)','10/18/2016 04:10:50 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (31,'POINT (-97.195336725444 49.919547861941)','01/10/2017 08:25:55 AM','Full Bus Pass-Up');
-INSERT INTO PassUp(routeNum,location,time,type) VALUES (NULL,'POINT (-97.201990236844 49.879992459468)','05/07/2011 07:37:26 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (11,'POINT (-97.160840725353 49.887739193705)','04/13/2018 09:22:19 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (18,'POINT (-97.146758320277 49.891193864379)','07/06/2016 02:14:39 PM','Wheelchair User Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (160,'POINT (-97.141183585869 49.873213477042)','08/07/2014 06:00:19 PM','Full Bus Pass-Up');
@@ -7200,7 +7180,6 @@ INSERT INTO PassUp(routeNum,location,time,type) VALUES (75,'POINT (-97.150023828
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (11,'POINT (-97.146890317403 49.892473267109)','04/29/2013 05:01:29 PM','Wheelchair User Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (11,'POINT (-97.15884843209 49.888508122199)','04/06/2012 02:55:50 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (14,'POINT (-97.134597154919 49.887742596451)','11/25/2013 05:12:18 PM','Full Bus Pass-Up');
-INSERT INTO PassUp(routeNum,location,time,type) VALUES (NULL,'POINT (-97.151359999561 49.893561071109)','11/18/2011 06:16:08 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (170,'POINT (-97.15201090737 49.81669962911)','03/05/2015 08:09:12 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (47,'POINT (-97.081410243897 49.900474998369)','06/04/2022 02:35:01 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (15,'POINT (-97.166404298868 49.896696404053)','02/18/2016 03:47:18 PM','Full Bus Pass-Up');
@@ -7213,7 +7192,6 @@ INSERT INTO PassUp(routeNum,location,time,type) VALUES (44,'POINT (-97.119492169
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (18,'POINT (-97.149125069637 49.890107301718)','11/13/2013 04:42:51 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (75,'POINT (-97.130177662086 49.808955333818)','01/31/2019 02:27:35 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (32,'POINT (-97.126338035198 49.923769352616)','01/07/2014 08:17:45 AM','Full Bus Pass-Up');
-INSERT INTO PassUp(routeNum,location,time,type) VALUES (NULL,'POINT (-97.091076233143 49.834430639568)','12/27/2011 05:07:05 PM','Wheelchair User Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (44,'POINT (-97.138758329616 49.896831496139)','11/12/2019 04:06:21 PM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (32,'POINT (-97.129115825114 49.919676514295)','02/02/2010 07:52:24 AM','Full Bus Pass-Up');
 INSERT INTO PassUp(routeNum,location,time,type) VALUES (65,'POINT (-97.133708041847 49.881917489617)','10/02/2012 04:17:23 PM','Full Bus Pass-Up');

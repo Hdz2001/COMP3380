@@ -1,3 +1,5 @@
+-- clean up
+
 -- Route Table
 CREATE TABLE Route (
     routeNum VARCHAR(255) PRIMARY KEY,
@@ -25,8 +27,8 @@ CREATE TABLE Schedule (
 
 -- RouteBus Table
 CREATE TABLE RouteBus(
-    busNum INT,
-    routeNum INT,
+    busNum VARCHAR(255),
+    routeNum VARCHAR(255),
     PRIMARY KEY (routeNum, busNum),
     FOREIGN KEY (busNum) REFERENCES Bus(busNum),
     FOREIGN KEY (routeNum) REFERENCES Route(routeNum)
@@ -174,8 +176,6 @@ INSERT INTO Route(routeNum,routeName) VALUES (690,'Industrial');
 INSERT INTO Route(routeNum,routeName) VALUES (691,'Whyte Ridge');
 INSERT INTO Route(routeNum,routeName) VALUES (693,'Waverley Heights');
 INSERT INTO Route(routeNum,routeName) VALUES (694,'Wildwood');
-
-
 INSERT INTO Route(routeNum,routeName) VALUES ('BLUE','BLUE');
 INSERT INTO Route(routeNum,routeName) VALUES ('S401','Beliveau School');
 INSERT INTO Route(routeNum,routeName) VALUES ('S402','Adolescent Parent Centre');
@@ -212,8 +212,145 @@ INSERT INTO Route(routeNum,routeName) VALUES ('S439','JH Bruns-Beliveau');
 INSERT INTO Route(routeNum,routeName) VALUES ('S440','River East-Chief Peguis');
 INSERT INTO Route(routeNum,routeName) VALUES ('S441','Edmund Partridge School');
 
-
---need insert bus
+--insert bus
+INSERT INTO Bus(busNum,destination) VALUES (1,'To The Forks');
+INSERT INTO Bus(busNum,destination) VALUES (2,'To The Forks');
+INSERT INTO Bus(busNum,destination) VALUES (10,'St. Boniface via Tache');
+INSERT INTO Bus(busNum,destination) VALUES (11,'Polo Park');
+INSERT INTO Bus(busNum,destination) VALUES (12,'Polo Park');
+INSERT INTO Bus(busNum,destination) VALUES (14,'South St. Vital via Dakota');
+INSERT INTO Bus(busNum,destination) VALUES (15,'Inkster Park via Inkster');
+INSERT INTO Bus(busNum,destination) VALUES (16,'Tyndall Park via Burrows');
+INSERT INTO Bus(busNum,destination) VALUES (17,'Amber Trails');
+INSERT INTO Bus(busNum,destination) VALUES (18,'Garden City Centre via Jefferson');
+INSERT INTO Bus(busNum,destination) VALUES (19,'RRC Polytech via Notre Dame');
+INSERT INTO Bus(busNum,destination) VALUES (20,'Airport Terminal');
+INSERT INTO Bus(busNum,destination) VALUES (21,'City Hall');
+INSERT INTO Bus(busNum,destination) VALUES (22,'City Hall');
+INSERT INTO Bus(busNum,destination) VALUES (23,'Fort and Assiniboine via Maryland');
+INSERT INTO Bus(busNum,destination) VALUES (24,'Unicity');
+INSERT INTO Bus(busNum,destination) VALUES (25,'City Hall');
+INSERT INTO Bus(busNum,destination) VALUES (26,'City Hall');
+INSERT INTO Bus(busNum,destination) VALUES (28,'Inkster Industrial Park');
+INSERT INTO Bus(busNum,destination) VALUES (29,'Beaumont Station via Stafford');
+INSERT INTO Bus(busNum,destination) VALUES (30,'Inkster Park');
+INSERT INTO Bus(busNum,destination) VALUES (31,'City Hall');
+INSERT INTO Bus(busNum,destination) VALUES (32,'Downtown');
+INSERT INTO Bus(busNum,destination) VALUES (33,'Maples via Mapleglen');
+INSERT INTO Bus(busNum,destination) VALUES (34,'Downtown');
+INSERT INTO Bus(busNum,destination) VALUES (35,'City Hall');
+INSERT INTO Bus(busNum,destination) VALUES (36,'U of Manitoba');
+INSERT INTO Bus(busNum,destination) VALUES (38,'Templeton & McPhillips');
+INSERT INTO Bus(busNum,destination) VALUES (40,'All Seasons');
+INSERT INTO Bus(busNum,destination) VALUES (41,'Balmoral Station');
+INSERT INTO Bus(busNum,destination) VALUES (42,'Balmoral Station');
+INSERT INTO Bus(busNum,destination) VALUES (43,'Assiniboine');
+INSERT INTO Bus(busNum,destination) VALUES (44,'Broadway via London');
+INSERT INTO Bus(busNum,destination) VALUES (45,'Munroe & Prevette');
+INSERT INTO Bus(busNum,destination) VALUES (46,'Balmoral Station');
+INSERT INTO Bus(busNum,destination) VALUES (47,'Transcona via Kildare');
+INSERT INTO Bus(busNum,destination) VALUES (48,'Balmoral Station');
+INSERT INTO Bus(busNum,destination) VALUES (49,'North Transcona');
+INSERT INTO Bus(busNum,destination) VALUES (50,'Sage Creek');
+INSERT INTO Bus(busNum,destination) VALUES (51,'N/A');
+INSERT INTO Bus(busNum,destination) VALUES (53,'Downtown');
+INSERT INTO Bus(busNum,destination) VALUES (54,'University of Winnipeg');
+INSERT INTO Bus(busNum,destination) VALUES (55,'St. Vital Centre via Dakota');
+INSERT INTO Bus(busNum,destination) VALUES (56,'Downtown');
+INSERT INTO Bus(busNum,destination) VALUES (57,'University of Winnipeg');
+INSERT INTO Bus(busNum,destination) VALUES (58,'City Hall');
+INSERT INTO Bus(busNum,destination) VALUES (59,'University of Winnipeg');
+INSERT INTO Bus(busNum,destination) VALUES (60,'Downtown');
+INSERT INTO Bus(busNum,destination) VALUES (64,'N/A');
+INSERT INTO Bus(busNum,destination) VALUES (65,'Downtown (City Hall)');
+INSERT INTO Bus(busNum,destination) VALUES (66,'Downtown (City Hall)');
+INSERT INTO Bus(busNum,destination) VALUES (67,'Westdale via');
+INSERT INTO Bus(busNum,destination) VALUES (68,'River Heights via Wellington Crescent');
+INSERT INTO Bus(busNum,destination) VALUES (71,'N/A');
+INSERT INTO Bus(busNum,destination) VALUES (72,'N/A');
+INSERT INTO Bus(busNum,destination) VALUES (74,'Polo Park');
+INSERT INTO Bus(busNum,destination) VALUES (75,'University of Manitoba');
+INSERT INTO Bus(busNum,destination) VALUES (76,'N/A');
+INSERT INTO Bus(busNum,destination) VALUES (77,'N/A');
+INSERT INTO Bus(busNum,destination) VALUES (78,'Polo Park');
+INSERT INTO Bus(busNum,destination) VALUES (79,'Westdale via Kenaston');
+INSERT INTO Bus(busNum,destination) VALUES (82,'Unicity');
+INSERT INTO Bus(busNum,destination) VALUES (83,'Unicity');
+INSERT INTO Bus(busNum,destination) VALUES (84,'N/A');
+INSERT INTO Bus(busNum,destination) VALUES (85,'Kildonan Place');
+INSERT INTO Bus(busNum,destination) VALUES (86,'Crossroads Station');
+INSERT INTO Bus(busNum,destination) VALUES (87,'South Transcona');
+INSERT INTO Bus(busNum,destination) VALUES (88,'Cathedral & Main');
+INSERT INTO Bus(busNum,destination) VALUES (89,'North Transcona');
+INSERT INTO Bus(busNum,destination) VALUES (90,'N/A');
+INSERT INTO Bus(busNum,destination) VALUES (91,'N/A');
+INSERT INTO Bus(busNum,destination) VALUES (92,'Lakeside Meadows');
+INSERT INTO Bus(busNum,destination) VALUES (93,'N/A');
+INSERT INTO Bus(busNum,destination) VALUES (94,'N/A');
+INSERT INTO Bus(busNum,destination) VALUES (95,'Riverview');
+INSERT INTO Bus(busNum,destination) VALUES (96,'Paterson Loop via Southdale');
+INSERT INTO Bus(busNum,destination) VALUES (97,'Fife');
+INSERT INTO Bus(busNum,destination) VALUES (98,'Grace Hospital');
+INSERT INTO Bus(busNum,destination) VALUES (99,'N/A');
+INSERT INTO Bus(busNum,destination) VALUES (137,'N/A');
+INSERT INTO Bus(busNum,destination) VALUES (160,'N/A');
+INSERT INTO Bus(busNum,destination) VALUES (161,'N/A');
+INSERT INTO Bus(busNum,destination) VALUES (162,'N/A');
+INSERT INTO Bus(busNum,destination) VALUES (163,'N/A');
+INSERT INTO Bus(busNum,destination) VALUES (170,'N/A');
+INSERT INTO Bus(busNum,destination) VALUES (180,'N/A');
+INSERT INTO Bus(busNum,destination) VALUES (181,'N/A');
+INSERT INTO Bus(busNum,destination) VALUES (183,'N/A');
+INSERT INTO Bus(busNum,destination) VALUES (185,'N/A');
+INSERT INTO Bus(busNum,destination) VALUES (635,'Harkness Station');
+INSERT INTO Bus(busNum,destination) VALUES (641,'Beaumont Station via Lindenwoods West');
+INSERT INTO Bus(busNum,destination) VALUES (642,'Fort Garry Industrial Park via Lindenwoods East');
+INSERT INTO Bus(busNum,destination) VALUES (649,'Whyte Ridge via Chevrier');
+INSERT INTO Bus(busNum,destination) VALUES (650,'Whyte Ridge via Kenaston Common');
+INSERT INTO Bus(busNum,destination) VALUES (662,'Markham Station via Richmond West');
+INSERT INTO Bus(busNum,destination) VALUES (671,'Prairie Pointe via Dalhousie');
+INSERT INTO Bus(busNum,destination) VALUES (672,'Prairie Pointe via Killarney');
+INSERT INTO Bus(busNum,destination) VALUES (676,'St. Vital Centre via River Road');
+INSERT INTO Bus(busNum,destination) VALUES (677,'Kenaston Common via Industrial Park');
+INSERT INTO Bus(busNum,destination) VALUES (690,'Seel Station via Fort Garry Industrial Park');
+INSERT INTO Bus(busNum,destination) VALUES (691,'Seel Station via Chevrier');
+INSERT INTO Bus(busNum,destination) VALUES (693,'Bridgwater Forest');
+INSERT INTO Bus(busNum,destination) VALUES (694,'Seel Station via Wildwood');
+INSERT INTO Bus(busNum,destination) VALUES ('BLUE','University of Manitoba');
+INSERT INTO Bus(busNum,destination) VALUES ('S401','N/A');
+INSERT INTO Bus(busNum,destination) VALUES ('S402','N/A');
+INSERT INTO Bus(busNum,destination) VALUES ('S404','N/A');
+INSERT INTO Bus(busNum,destination) VALUES ('S405','N/A');
+INSERT INTO Bus(busNum,destination) VALUES ('S406','N/A');
+INSERT INTO Bus(busNum,destination) VALUES ('S408','N/A');
+INSERT INTO Bus(busNum,destination) VALUES ('S409','N/A');
+INSERT INTO Bus(busNum,destination) VALUES ('S410','N/A');
+INSERT INTO Bus(busNum,destination) VALUES ('S412','N/A');
+INSERT INTO Bus(busNum,destination) VALUES ('S413','N/A');
+INSERT INTO Bus(busNum,destination) VALUES ('S414','N/A');
+INSERT INTO Bus(busNum,destination) VALUES ('S416','N/A');
+INSERT INTO Bus(busNum,destination) VALUES ('S417','N/A');
+INSERT INTO Bus(busNum,destination) VALUES ('S418','N/A');
+INSERT INTO Bus(busNum,destination) VALUES ('S419','N/A');
+INSERT INTO Bus(busNum,destination) VALUES ('S420','N/A');
+INSERT INTO Bus(busNum,destination) VALUES ('S421','N/A');
+INSERT INTO Bus(busNum,destination) VALUES ('S422','N/A');
+INSERT INTO Bus(busNum,destination) VALUES ('S425','N/A');
+INSERT INTO Bus(busNum,destination) VALUES ('S426','N/A');
+INSERT INTO Bus(busNum,destination) VALUES ('S427','N/A');
+INSERT INTO Bus(busNum,destination) VALUES ('S428','N/A');
+INSERT INTO Bus(busNum,destination) VALUES ('S429','N/A');
+INSERT INTO Bus(busNum,destination) VALUES ('S430','N/A');
+INSERT INTO Bus(busNum,destination) VALUES ('S431','N/A');
+INSERT INTO Bus(busNum,destination) VALUES ('S432','N/A');
+INSERT INTO Bus(busNum,destination) VALUES ('S433','N/A');
+INSERT INTO Bus(busNum,destination) VALUES ('S435','N/A');
+INSERT INTO Bus(busNum,destination) VALUES ('S436','N/A');
+INSERT INTO Bus(busNum,destination) VALUES ('S437','N/A');
+INSERT INTO Bus(busNum,destination) VALUES ('S438','N/A');
+INSERT INTO Bus(busNum,destination) VALUES ('S439','N/A');
+INSERT INTO Bus(busNum,destination) VALUES ('S440','N/A');
+INSERT INTO Bus(busNum,destination) VALUES ('S441','N/A');
 
 -- insert bus stop
 INSERT INTO BusStop(stopNum,location) VALUES (10001,'POINT (-97.1395184826562 49.8712708150574)');

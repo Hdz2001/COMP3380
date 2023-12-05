@@ -68,15 +68,27 @@ public class SQLServerProject {
             if (parts[0].equals("h"))
                 printHelp();
             else if (parts[0].equals("r")) {
-                db.getRoute();
+                if (parts.length == 1){
+                    db.getRoute();
+                } else {
+                    db.getRoute(parts[1]);
+                }
             }
 
             else if (parts[0].equals("b")) {
-                db.getBus();
+                if (parts.length == 1){
+                    db.getBus();
+                } else {
+                    db.getBus(parts[1]);
+                }
             }
 
             else if (parts[0].equals("s")) {
-                db.getStop();
+                if (parts.length == 1){
+                    db.getStop();
+                } else {
+                    db.getStop(parts[1]);
+                }
             }
 
             else if (parts[0].equals("sched")) {
@@ -105,8 +117,11 @@ public class SQLServerProject {
         System.out.println("Library database");
         System.out.println("Commands:");
         System.out.println("r - List all routes and name");
+        System.out.println("r [route number] - List a route and name");
         System.out.println("b - List all buses and destination");
+        System.out.println("b [bus number]- List a bus and destination");
         System.out.println("s - List all bus stops and location");
+        System.out.println("s [stop number]- List a bus stop and location");
         System.out.println("sched - List all schedules, start and end date");
         System.out.println("a - List all Activities");
         System.out.println("pu - List all Pass Up");
@@ -149,6 +164,35 @@ class MyDatabase {
         }
     }
 
+    public void getRoute(String num) {
+        try {
+            if(!isRouteNum(num)){
+                System.out.println("Not route number");
+                return;
+            }
+            String sql = "SELECT * FROM Route WHERE routeNum = ?";
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, num);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()){
+                System.out.println("Route Number: " + resultSet.getString("routeNum") +
+                        ", Route Name: " + resultSet.getString("routeName"));
+            } else {
+                System.out.println("Not found.");
+            }
+            while (resultSet.next()) {
+                System.out.println("Route Number: " + resultSet.getString("routeNum") +
+                        ", Route Name: " + resultSet.getString("routeName"));
+            }
+            resultSet.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace(System.out);
+        }
+    }
+
     public void getBus() {
         try {
             String sql = "SELECT * FROM Bus";
@@ -167,6 +211,35 @@ class MyDatabase {
         }
     }
 
+    public void getBus(String num) {
+        try {
+            if(!isRouteNum(num)){
+                System.out.println("Not bus number");
+                return;
+            }
+            String sql = "SELECT * FROM Bus WHERE busNum = ?";
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, num);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()){
+                System.out.println("Bus Number: " + resultSet.getString("busNum") +
+                        ", Destination: " + resultSet.getString("destination"));
+            } else {
+                System.out.println("Not found.");
+            }
+            while (resultSet.next()) {
+                System.out.println("Bus Number: " + resultSet.getString("busNum") +
+                        ", Destination: " + resultSet.getString("destination"));
+            }
+            resultSet.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace(System.out);
+        }
+    }
+
     public void getStop() {
         try {
             String sql = "SELECT * FROM BusStop";
@@ -174,6 +247,35 @@ class MyDatabase {
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet resultSet = statement.executeQuery();
 
+            while (resultSet.next()) {
+                System.out.println("Stop Number: " + resultSet.getString("stopNum") +
+                        ", Location: " + resultSet.getString("location"));
+            }
+            resultSet.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace(System.out);
+        }
+    }
+
+    public void getStop(String num) {
+        try {
+            if(!isNumber(num)){
+                System.out.println("Not stop number");
+                return;
+            }
+            String sql = "SELECT * FROM BusStop WHERE stopNum = ?";
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, Integer.valueOf(num));
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()){
+                System.out.println("Stop Number: " + resultSet.getString("stopNum") +
+                        ", Location: " + resultSet.getString("location"));
+            } else {
+                System.out.println("Not found.");
+            }
             while (resultSet.next()) {
                 System.out.println("Stop Number: " + resultSet.getString("stopNum") +
                         ", Location: " + resultSet.getString("location"));
@@ -215,8 +317,8 @@ class MyDatabase {
                 System.out.println("Schedule Name: " + resultSet.getString("scheName") +
                         ", Route Number: " + resultSet.getString("routeNum") +
                         ", Stop Number: " + resultSet.getString("stopNum") +
-                        ", Boarding Number: " + resultSet.getString("routeNum") +
-                        ", Alighting Number: " + resultSet.getInt("stopNum") +
+                        ", Boarding Number: " + resultSet.getInt("boardingNum") +
+                        ", Alighting Number: " + resultSet.getInt("alightingNum") +
                         ", Day type: " + resultSet.getString("dayType") +
                         ", Time Period: " + resultSet.getString("timePeriod") );
             }
@@ -245,5 +347,13 @@ class MyDatabase {
         } catch (SQLException e) {
             e.printStackTrace(System.out);
         }
+    }
+
+    private static boolean isRouteNum(String str){
+        return str != null && str.matches("(^[0-9]+$)|(^S[0-9]+$)");
+    }
+
+    private static boolean isNumber(String str){
+        return str != null && str.matches("^[0-9]+$");
     }
 }

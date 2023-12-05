@@ -215,7 +215,7 @@ class MyDatabase {
                 System.out.println("Schedule Name: " + resultSet.getString("scheName") +
                         ", Route Number: " + resultSet.getString("routeNum") +
                         ", Stop Number: " + resultSet.getString("stopNum") +
-                        ", Boarding Number: " + resultSet.getInt("routeNum") +
+                        ", Boarding Number: " + resultSet.getString("routeNum") +
                         ", Alighting Number: " + resultSet.getInt("stopNum") +
                         ", Day type: " + resultSet.getString("dayType") +
                         ", Time Period: " + resultSet.getString("timePeriod") );

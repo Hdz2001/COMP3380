@@ -229,6 +229,12 @@ public class SQLServerProject {
                 db.getPassUpTime(parts[1]);
             }
 
+            //COMPLICATED QUERIES
+            else if (parts[0].equals("rinfo")) {
+                System.out.println("Executing...");
+                db.getRouteInfo(parts[1]);
+            }
+
             else
                 System.out.println("Read the help with h, or find help somewhere else.");
 
@@ -293,6 +299,10 @@ public class SQLServerProject {
         System.out.println("pu - List all Pass Up and sort by type");
         System.out.println("pu [route number] - List all Pass Up for a specific route ordered by time DESC");
         System.out.println("puy [year] - List all Pass Up for a specific year");
+        System.out.println("");
+
+        System.out.println("---- Complicated Queries ----");
+        System.out.println("rinfo [route number] - List all information about a specific route");
         System.out.println("");
 
         System.out.println("q - Exit the program");
@@ -915,6 +925,56 @@ class MyDatabase {
                         ", Location: " + resultSet.getString("location") +
                         ", Time: " + resultSet.getString("time") +
                         ", Pass Up Type: " + resultSet.getString("type"));
+            }
+            resultSet.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace(System.out);
+        }
+    }
+
+    public void getRouteInfo(String num) {
+        try {
+
+            String sql = "SELECT Route.routeNum AS rNum, Bus.destination AS busDestination, BusStop.stopNum AS stopNumber, BusStop.location AS stopLocation, " +
+                        "Schedule.scheName AS sName, Schedule.startDate AS sStart, Schedule.endDate AS sEnd, " +
+                        "Activity.boardingNum AS board, Activity.alightingNum AS alight, Activity.dayType AS dayType, Activity.timePeriod AS timePeriod " +
+                        "FROM Route " +
+                        "LEFT JOIN Bus ON Route.routeNum = Bus.busNum " +
+                        "LEFT JOIN Activity ON Route.routeNum = Activity.routeNum " +
+                        "LEFT JOIN BusStop ON Activity.stopNum = BusStop.stopNum " +
+                        "LEFT JOIN Schedule ON Activity.scheName = Schedule.scheName " +
+                        "WHERE Route.routeNum = ?;";
+
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, num);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()){
+                System.out.println("Route Number: " + resultSet.getString("rNum") + "\n" +
+                        "Stop Number: " + resultSet.getString("stopNumber") +
+                        ", Location: " + resultSet.getString("stopLocation") +
+                        ", Schedule Name: " + resultSet.getString("sName") +
+                        ", Start Date: " + resultSet.getString("sStart") +
+                        ", End Date: " + resultSet.getString("sEnd") +
+                        ", Boarding Number: " + resultSet.getInt("board") +
+                        ", Alighting Number: " + resultSet.getInt("alight") +
+                        ", Day type: " + resultSet.getString("dayType") +
+                        ", Time Period: " + resultSet.getString("timePeriod") );
+            } else {
+                System.out.println("Not found.");
+            }
+            while (resultSet.next()) {
+                System.out.println("Stop Number: " + resultSet.getString("stopNumber") +
+                        ", Location: " + resultSet.getString("stopLocation") +
+                        ", Schedule Name: " + resultSet.getString("sName") +
+                        ", Start Date: " + resultSet.getString("sStart") +
+                        ", End Date: " + resultSet.getString("sEnd") +
+                        ", Boarding Number: " + resultSet.getInt("board") +
+                        ", Alighting Number: " + resultSet.getInt("alight") +
+                        ", Day type: " + resultSet.getString("dayType") +
+                        ", Time Period: " + resultSet.getString("timePeriod") );
             }
             resultSet.close();
             statement.close();

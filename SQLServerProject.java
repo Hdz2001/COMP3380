@@ -166,10 +166,6 @@ class MyDatabase {
 
     public void getRoute(String num) {
         try {
-            if(!isRouteNum(num)){
-                System.out.println("Not route number");
-                return;
-            }
             String sql = "SELECT * FROM Route WHERE routeNum = ?";
 
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -213,10 +209,6 @@ class MyDatabase {
 
     public void getBus(String num) {
         try {
-            if(!isRouteNum(num)){
-                System.out.println("Not bus number");
-                return;
-            }
             String sql = "SELECT * FROM Bus WHERE busNum = ?";
 
             PreparedStatement statement = connection.prepareStatement(sql);

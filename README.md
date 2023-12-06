@@ -4,7 +4,7 @@ Instructions to run the project:
 * To save time, you can enter the following infos into auth.cfg:
   * username=trannh
   * password=7876849
-* This will bring you to my personal's uranium server, where all the data is already populated and you can skip step 1.
+* This will bring you to my personal's uranium server, where all the data is already populated w/o errors and thus, you can skip step 1.
 4. Enter "make" in the command prompt to build the program.
 5. Enter "make run" after to run the program.
 * make clean is also included to clean up everything.  

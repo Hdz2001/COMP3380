@@ -8,4 +8,4 @@ Instructions to run the project:
 4. Enter "make" in the command prompt to build the program.
 5. Enter "make run" after to run the program.
 * make clean is also included to clean up everything.  
-5. Follow instructions in the program. Enjoy :)
+5. Instructions for queries are included in the program. Enjoy :)

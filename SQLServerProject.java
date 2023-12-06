@@ -229,7 +229,7 @@ public class SQLServerProject {
                 db.getPassUpTime(parts[1]);
             }
 
-            //COMPLICATED QUERIES
+            // COMPLICATED QUERIES
             else if (parts[0].equals("rinfo")) {
                 System.out.println("Executing...");
                 db.getRouteInfo(parts[1]);
@@ -238,6 +238,56 @@ public class SQLServerProject {
             else if (parts[0].equals("stopBuses")) {
                 System.out.println("Executing...");
                 db.findBus(parts[1]);
+            }
+
+            else if (parts[0].equals("arSum")) {
+                if (parts.length == 1){
+                    System.out.println("Executing...");
+                    db.getBusArrivalSummary();
+                } else {
+                    System.out.println("Executing...");
+                    db.getBusArrivalSummary(parts[1]);
+                }
+            }
+
+            else if (parts[0].equals("arSumS")) {
+                System.out.println("Executing...");
+                db.getBusArrivalSummaryStop(parts[1]);
+            }
+
+            else if (parts[0].equals("boardAct")) {
+                System.out.println("Executing...");
+                db.getBoardingSummaryDay(parts[1]);
+            }
+
+            else if (parts[0].equals("busiestStop")) {
+                if (parts.length == 1){
+                    System.out.println("Executing...");
+                    db.getBusiestBusStop();
+                } else {
+                    System.out.println("Executing...");
+                    db.getBusiestBusStop(parts[1]);
+                }
+            }
+
+            else if (parts[0].equals("topPuFull")) {
+                if (parts.length == 1){
+                    System.out.println("Executing...");
+                    db.getTopPassUpFullBus();
+                } else {
+                    System.out.println("Executing...");
+                    db.getTopPassUpFullBus(parts[1]);
+                }
+            }
+
+            else if (parts[0].equals("topPuWheel")) {
+                if (parts.length == 1){
+                    System.out.println("Executing...");
+                    db.getTopPassUpWheelchair();
+                } else {
+                    System.out.println("Executing...");
+                    db.getTopPassUpWheelchair(parts[1]);
+                }
             }
 
             else
@@ -307,8 +357,18 @@ public class SQLServerProject {
         System.out.println("");
 
         System.out.println("---- Complicated Queries ----");
-        System.out.println("rinfo [route number] - List all information about a specific route");
+        System.out.println("rinfo [route number] - List all information about a specific route including associated buses, schedule, and activities");
         System.out.println("stopBuses [stop number] - Find all buses arriving at a specific bus stop and their corresponding schedule information");
+        System.out.println("arSum - Detailed information about all bus arrivals and count of the number of arrivals for each bus, stop, and destination");
+        System.out.println("arSum [bus number] - Detailed information about bus arrivals and count of the number of arrivals for a specific bus");
+        System.out.println("arSumS [stop number] - Detailed information about bus arrivals and count of the number of arrivals for a stop number");
+        System.out.println("boardAct [day type] - Retrieve the total number of passengers for each route on specific day type");
+        System.out.println("busiestStop - Retrieve the busiest bus stops based on the total number of passengers, DESC order");
+        System.out.println("busiestStop [number] - Retrieve the top [number] busiest bus stops based on the total number of passengers, DESC order");
+        System.out.println("topPuFull - Retrieve total pass-up type for Full Bus Pass-Up, DESC order");
+        System.out.println("topPuFull [number] - Retrieve top [number] total pass-up type for Full Bus Pass-Up, DESC order");
+        System.out.println("topPuWheel - Retrieve total pass-up type for Wheelchair User Pass-Up, DESC order");
+        System.out.println("topPuWheel [number] - Retrieve top [number] total pass-up type for Wheelchair User Pass-Up, DESC order");
         System.out.println("");
 
         System.out.println("q - Exit the program");
@@ -361,7 +421,7 @@ class MyDatabase {
                 System.out.println("Route Number: " + resultSet.getString("routeNum") +
                         ", Route Name: " + resultSet.getString("routeName"));
             } else {
-                System.out.println("Not found.");
+                System.out.println("NOT FOUND!");
             }
             while (resultSet.next()) {
                 System.out.println("Route Number: " + resultSet.getString("routeNum") +
@@ -386,7 +446,7 @@ class MyDatabase {
                 System.out.println("Route Number: " + resultSet.getString("routeNum") +
                         ", Route Name: " + resultSet.getString("routeName"));
             } else {
-                System.out.println("Not found.");
+                System.out.println("NOT FOUND!");
             }
             while (resultSet.next()) {
                 System.out.println("Route Number: " + resultSet.getString("routeNum") +
@@ -430,7 +490,7 @@ class MyDatabase {
                 System.out.println("Bus Number: " + resultSet.getString("busNum") +
                         ", Destination: " + resultSet.getString("destination"));
             } else {
-                System.out.println("Not found.");
+                System.out.println("NOT FOUND!");
             }
             while (resultSet.next()) {
                 System.out.println("Bus Number: " + resultSet.getString("busNum") +
@@ -472,7 +532,7 @@ class MyDatabase {
                 System.out.println("Bus Number: " + resultSet.getString("busNum") +
                         ", Destination: " + resultSet.getString("destination"));
             } else {
-                System.out.println("Not found.");
+                System.out.println("NOT FOUND!");
             }
             while (resultSet.next()) {
                 System.out.println("Bus Number: " + resultSet.getString("busNum") +
@@ -507,7 +567,7 @@ class MyDatabase {
     public void getStop(String num) {
         try {
             if(!isNumber(num)){
-                System.out.println("Not stop number");
+                System.out.println("Input need to be a stop number.");
                 return;
             }
             String sql = "SELECT * FROM BusStop WHERE stopNum = ?";
@@ -520,7 +580,7 @@ class MyDatabase {
                 System.out.println("Stop Number: " + resultSet.getString("stopNum") +
                         ", Location: " + resultSet.getString("location"));
             } else {
-                System.out.println("Not found.");
+                System.out.println("NOT FOUND!");
             }
             while (resultSet.next()) {
                 System.out.println("Stop Number: " + resultSet.getString("stopNum") +
@@ -565,7 +625,7 @@ class MyDatabase {
                         ", Start Date: " + resultSet.getString("startDate") +
                         ", End Date: " + resultSet.getString("endDate"));
             } else {
-                System.out.println("Not found.");
+                System.out.println("NOT FOUND!");
             }
 
             while (resultSet.next()) {
@@ -621,7 +681,7 @@ class MyDatabase {
                         ", Day type: " + resultSet.getString("dayType") +
                         ", Time Period: " + resultSet.getString("timePeriod") );
             } else {
-                System.out.println("Not found.");
+                System.out.println("NOT FOUND!");
             }
             while (resultSet.next()) {
                 System.out.println("Schedule Name: " + resultSet.getString("scheName") +
@@ -642,7 +702,7 @@ class MyDatabase {
     public void getActivityStopNum(String num) {
         try {
             if(!isNumber(num)){
-                System.out.println("Not stop number");
+                System.out.println("Input need to be a stop number.");
                 return;
             }
 
@@ -661,7 +721,7 @@ class MyDatabase {
                         ", Day type: " + resultSet.getString("dayType") +
                         ", Time Period: " + resultSet.getString("timePeriod") );
             } else {
-                System.out.println("Not found.");
+                System.out.println("NOT FOUND!");
             }
             while (resultSet.next()) {
                 System.out.println("Schedule Name: " + resultSet.getString("scheName") +
@@ -713,7 +773,7 @@ class MyDatabase {
                         ", Day type: " + resultSet.getString("dayType") +
                         ", Time Period: " + resultSet.getString("timePeriod") );
             } else {
-                System.out.println("Not found.");
+                System.out.println("NOT FOUND!");
             }
 
             while (resultSet.next()) {
@@ -749,7 +809,7 @@ class MyDatabase {
                         ", Day type: " + resultSet.getString("dayType") +
                         ", Time Period: " + resultSet.getString("timePeriod") );
             } else {
-                System.out.println("Not found.");
+                System.out.println("NOT FOUND!");
             }
             while (resultSet.next()) {
                 System.out.println("Schedule Name: " + resultSet.getString("scheName") +
@@ -802,7 +862,7 @@ class MyDatabase {
                         ", Time: " + resultSet.getString("scheTime") +
                         ", Deviation: " + resultSet.getInt("deviation"));
             } else {
-                System.out.println("Not found.");
+                System.out.println("NOT FOUND!");
             }
             while (resultSet.next()) {
                 System.out.println("Bus Number: " + resultSet.getString("busNum") +
@@ -892,7 +952,7 @@ class MyDatabase {
                         ", Time: " + resultSet.getString("time") +
                         ", Pass Up Type: " + resultSet.getString("type"));
             } else {
-                System.out.println("Not found.");
+                System.out.println("NOT FOUND!");
             }
             while (resultSet.next()) {
                 System.out.println("Route Number: " + resultSet.getString("routeNum") +
@@ -910,7 +970,7 @@ class MyDatabase {
     public void getPassUpTime(String num) {
         try {
             if(!isNumber(num)){
-                System.out.println("Not year number");
+                System.out.println("Input need to be a year number.");
                 return;
             }
             String sql = "SELECT * FROM PassUp WHERE time LIKE '%" + num + "%'";
@@ -924,7 +984,7 @@ class MyDatabase {
                         ", Time: " + resultSet.getString("time") +
                         ", Pass Up Type: " + resultSet.getString("type"));
             } else {
-                System.out.println("Not found.");
+                System.out.println("NOT FOUND!");
             }
             while (resultSet.next()) {
                 System.out.println("Route Number: " + resultSet.getString("routeNum") +
@@ -938,6 +998,8 @@ class MyDatabase {
             e.printStackTrace(System.out);
         }
     }
+
+    // COMPLICATED QUERIES
 
     public void getRouteInfo(String num) {
         try {
@@ -969,7 +1031,7 @@ class MyDatabase {
                         ", Day type: " + resultSet.getString("dayType") +
                         ", Time Period: " + resultSet.getString("timePeriod") );
             } else {
-                System.out.println("Not found.");
+                System.out.println("NOT FOUND!");
             }
             while (resultSet.next()) {
                 System.out.println("Stop Number: " + resultSet.getString("stopNumber") +
@@ -992,7 +1054,7 @@ class MyDatabase {
     public void findBus(String num) {
         try {
             if(!isNumber(num)){
-                System.out.println("Not stop number");
+                System.out.println("Input need to be a stop number.");
                 return;
             }
 
@@ -1015,7 +1077,7 @@ class MyDatabase {
                         ", Start Date: " + resultSet.getString("sStart") +
                         ", End Date: " + resultSet.getString("sEnd") );
             } else {
-                System.out.println("Not found.");
+                System.out.println("NOT FOUND!");
             }
             while (resultSet.next()) {
                 System.out.println("Bus Number: " + resultSet.getString("bNum") +
@@ -1031,6 +1093,456 @@ class MyDatabase {
         }
     }
 
+    // BUS ARRIVAL SUMMARY 
+
+    public void getBusArrivalSummary(){
+        try {
+            String sql = "WITH BusArrivalSummary AS (" +
+                            "SELECT " +
+                            "Bus.busNum," +
+                            "Bus.destination, " +
+                            "Arrive.stopNum, " +
+                            "BusStop.location, " +
+                            "COUNT(*) AS ArrivalCount " +
+                        "FROM Bus " +
+                        "JOIN Arrive ON Bus.busNum = Arrive.busNum " +
+                        "JOIN BusStop ON Arrive.stopNum = BusStop.stopNum " +
+                        "GROUP BY Bus.busNum, Bus.destination, Arrive.stopNum, BusStop.location) " +
+            
+                        "SELECT * FROM BusArrivalSummary;";
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()){
+                System.out.println("Bus Number: " + resultSet.getString("busNum") +
+                        ", Destination: " + resultSet.getString("destination") +
+                        ", Stop Number: " + resultSet.getString("stopNum") +
+                        ", Location: " + resultSet.getString("location") +
+                        ", Arrival Count: " + resultSet.getString("ArrivalCount"));
+            } else {
+                System.out.println("NOT FOUND!");
+            }
+            while (resultSet.next()) {
+                System.out.println("Bus Number: " + resultSet.getString("busNum") +
+                        ", Destination: " + resultSet.getString("destination") +
+                        ", Stop Number: " + resultSet.getString("stopNum") +
+                        ", Location: " + resultSet.getString("location") +
+                        ", Arrival Count: " + resultSet.getString("ArrivalCount"));
+            }
+            resultSet.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace(System.out);
+        }
+    }
+
+    public void getBusArrivalSummary(String num){
+        try {
+            String sql = "WITH BusArrivalSummary AS (" +
+                            "SELECT " +
+                            "Bus.busNum," +
+                            "Bus.destination, " +
+                            "Arrive.stopNum, " +
+                            "BusStop.location, " +
+                            "COUNT(*) AS ArrivalCount " +
+                        "FROM Bus " +
+                        "JOIN Arrive ON Bus.busNum = Arrive.busNum " +
+                        "JOIN BusStop ON Arrive.stopNum = BusStop.stopNum " +
+                        "GROUP BY Bus.busNum, Bus.destination, Arrive.stopNum, BusStop.location) " +
+            
+                        "SELECT * FROM BusArrivalSummary where busNum = ?;";
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, num);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()){
+                System.out.println("Bus Number: " + resultSet.getString("busNum") +
+                        ", Destination: " + resultSet.getString("destination") +
+                        ", Stop Number: " + resultSet.getString("stopNum") +
+                        ", Location: " + resultSet.getString("location") +
+                        ", Arrival Count: " + resultSet.getString("ArrivalCount"));
+            } else {
+                System.out.println("NOT FOUND!");
+            }
+            while (resultSet.next()) {
+                System.out.println("Bus Number: " + resultSet.getString("busNum") +
+                        ", Destination: " + resultSet.getString("destination") +
+                        ", Stop Number: " + resultSet.getString("stopNum") +
+                        ", Location: " + resultSet.getString("location") +
+                        ", Arrival Count: " + resultSet.getString("ArrivalCount"));
+            }
+            resultSet.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace(System.out);
+        }
+    }
+
+    public void getBusArrivalSummaryStop(String num){
+        try {
+            if(!isNumber(num)){
+                System.out.println("Input need to be a stop number.");
+                return;
+            }
+
+            String sql = "WITH BusArrivalSummary AS (" +
+                            "SELECT " +
+                            "Bus.busNum," +
+                            "Bus.destination, " +
+                            "Arrive.stopNum, " +
+                            "BusStop.location, " +
+                            "COUNT(*) AS ArrivalCount " +
+                        "FROM Bus " +
+                        "JOIN Arrive ON Bus.busNum = Arrive.busNum " +
+                        "JOIN BusStop ON Arrive.stopNum = BusStop.stopNum " +
+                        "GROUP BY Bus.busNum, Bus.destination, Arrive.stopNum, BusStop.location) " +
+            
+                        "SELECT * FROM BusArrivalSummary where stopNum = ?;";
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, num);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()){
+                System.out.println("Bus Number: " + resultSet.getString("busNum") +
+                        ", Destination: " + resultSet.getString("destination") +
+                        ", Stop Number: " + resultSet.getString("stopNum") +
+                        ", Location: " + resultSet.getString("location") +
+                        ", Arrival Count: " + resultSet.getString("ArrivalCount"));
+            } else {
+                System.out.println("NOT FOUND!");
+            }
+            while (resultSet.next()) {
+                System.out.println("Bus Number: " + resultSet.getString("busNum") +
+                        ", Destination: " + resultSet.getString("destination") +
+                        ", Stop Number: " + resultSet.getString("stopNum") +
+                        ", Location: " + resultSet.getString("location") +
+                        ", Arrival Count: " + resultSet.getString("ArrivalCount"));
+            }
+            resultSet.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace(System.out);
+        }
+    }
+
+    // ACTIVITY SUMMARY 
+    public void getBoardingSummaryDay(String num){
+        try {
+            
+            String sql = "WITH BoardingActivity AS ("+
+                    "SELECT " +
+                    "routeNum, " +
+                    "SUM(boardingNum) AS totalBoarding, " +
+                    "SUM(alightingNum) AS totalAlighting " +
+                "FROM Activity " +
+                "WHERE dayType = ? " +
+                "GROUP BY routeNum) " +
+            
+            "SELECT " +
+                "Route.routeNum, " +
+                "BoardingActivity.totalBoarding, " +
+                "BoardingActivity.totalAlighting " +
+            "FROM Route " +
+            "LEFT JOIN BoardingActivity ON Route.routeNum = BoardingActivity.routeNum;";
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, num);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()){
+                String boardingTotal = resultSet.getString("totalBoarding");
+                String alightingTotal = resultSet.getString("totalAlighting");
+
+                if (boardingTotal == null)
+                {
+                    boardingTotal = "N/A";
+                }
+
+                if (alightingTotal == null)
+                {
+                    alightingTotal = "N/A";
+                }
+
+                System.out.println("Route Number: " + resultSet.getString("routeNum") +
+                        ", Total Boarding: " + boardingTotal +
+                        ", Total Alighting: " + alightingTotal);
+            } else {
+                System.out.println("NOT FOUND!");
+            }
+
+            while (resultSet.next()) {
+                String boardingTotal = resultSet.getString("totalBoarding");
+                String alightingTotal = resultSet.getString("totalAlighting");
+
+                if (boardingTotal == null)
+                {
+                    boardingTotal = "N/A";
+                }
+
+                if (alightingTotal == null)
+                {
+                    alightingTotal = "N/A";
+                }
+
+                System.out.println("Route Number: " + resultSet.getString("routeNum") +
+                        ", Total Boarding: " + boardingTotal +
+                        ", Total Alighting: " + alightingTotal);
+            }
+            resultSet.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace(System.out);
+        }
+    }
+
+    // BUSIEST BUS STOP 
+    public void getBusiestBusStop(){
+        try {
+
+            String sql = "WITH TotalPassengers AS (" +
+                            "SELECT " +
+                            "stopNum," +
+                            "SUM(boardingNum + alightingNum) AS totalPassengers " +
+                        "FROM Activity " +
+                        "GROUP BY stopNum) " +
+            
+                        "SELECT " +
+                        "BusStop.stopNum, " +
+                        "BusStop.location, " +
+                        "TotalPassengers.totalPassengers " +
+                        "FROM BusStop " + 
+                        "JOIN TotalPassengers ON BusStop.stopNum = TotalPassengers.stopNum " +
+                        "ORDER BY TotalPassengers.totalPassengers DESC;";
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()){
+                System.out.println("Stop Number: " + resultSet.getString("stopNum") +
+                        ", Location: " + resultSet.getString("location") +
+                        ", Total Passengers: " + resultSet.getString("totalPassengers"));
+            } else {
+                System.out.println("NOT FOUND!");
+            }
+            while (resultSet.next()) {
+                System.out.println("Stop Number: " + resultSet.getString("stopNum") +
+                        ", Location: " + resultSet.getString("location") +
+                        ", Total Passengers: " + resultSet.getString("totalPassengers"));
+            }
+            resultSet.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace(System.out);
+        }
+    }
+
+    public void getBusiestBusStop(String num){
+        try {
+            if(!isNumber(num)){
+                System.out.println("Input needs to be a number.");
+                return;
+            }
+
+            String sql = "WITH TotalPassengers AS (" +
+                            "SELECT " +
+                            "stopNum," +
+                            "SUM(boardingNum + alightingNum) AS totalPassengers " +
+                        "FROM Activity " +
+                        "GROUP BY stopNum) " +
+            
+                        "SELECT TOP " + num + " " +
+                        "BusStop.stopNum, " +
+                        "BusStop.location, " +
+                        "TotalPassengers.totalPassengers " +
+                        "FROM BusStop " + 
+                        "JOIN TotalPassengers ON BusStop.stopNum = TotalPassengers.stopNum " +
+                        "ORDER BY TotalPassengers.totalPassengers DESC ";
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()){
+                System.out.println("Stop Number: " + resultSet.getString("stopNum") +
+                        ", Location: " + resultSet.getString("location") +
+                        ", Total Passengers: " + resultSet.getString("totalPassengers"));
+            } else {
+                System.out.println("NOT FOUND!");
+            }
+            while (resultSet.next()) {
+                System.out.println("Stop Number: " + resultSet.getString("stopNum") +
+                        ", Location: " + resultSet.getString("location") +
+                        ", Total Passengers: " + resultSet.getString("totalPassengers"));
+            }
+            resultSet.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace(System.out);
+        }
+    }
+
+    // TOP PASS-UP
+    public void getTopPassUpFullBus(){
+        try {
+            String sql = "WITH TotalPassUp AS(" +
+                            "SELECT " +
+                            "routeNum, " +
+                            "COUNT(*) AS totalPassUp " +
+                        "FROM PassUp " +
+                        "WHERE type = 'Full Bus Pass-Up' " +
+                        "GROUP BY routeNum) " +
+            
+                        "SELECT " +
+                        "Route.routeNum, " +
+                        "TotalPassUp.totalPassUp " +
+                        "FROM Route " + 
+                        "JOIN TotalPassUp ON Route.routeNum = TotalPassUp.routeNum " +
+                        "ORDER BY totalPassUp DESC;";
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()){
+                System.out.println("Route Number: " + resultSet.getString("routeNum") +
+                        ", Total Pass Up: " + resultSet.getString("totalPassUp"));
+            } else {
+                System.out.println("NOT FOUND!");
+            }
+            while (resultSet.next()) {
+                System.out.println("Route Number: " + resultSet.getString("routeNum") +
+                        ", Total Pass Up: " + resultSet.getString("totalPassUp"));
+            }
+            resultSet.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace(System.out);
+        }
+    }
+
+    public void getTopPassUpFullBus(String num){
+        try {
+            if(!isNumber(num)){
+                System.out.println("Input needs to be a number.");
+                return;
+            }
+
+            String sql = "WITH TotalPassUp AS(" +
+                            "SELECT " +
+                            "routeNum, " +
+                            "COUNT(*) AS totalPassUp " +
+                        "FROM PassUp " +
+                        "WHERE type = 'Full Bus Pass-Up' " +
+                        "GROUP BY routeNum) " +
+            
+                        "SELECT TOP " + num + " " +
+                        "Route.routeNum, " +
+                        "TotalPassUp.totalPassUp " +
+                        "FROM Route " + 
+                        "JOIN TotalPassUp ON Route.routeNum = TotalPassUp.routeNum " +
+                        "ORDER BY totalPassUp DESC;";
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()){
+                System.out.println("Route Number: " + resultSet.getString("routeNum") +
+                        ", Total Pass Up: " + resultSet.getString("totalPassUp"));
+            } else {
+                System.out.println("NOT FOUND!");
+            }
+            while (resultSet.next()) {
+                System.out.println("Route Number: " + resultSet.getString("routeNum") +
+                        ", Total Pass Up: " + resultSet.getString("totalPassUp"));
+            }
+            resultSet.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace(System.out);
+        }
+    }
+
+    public void getTopPassUpWheelchair(){
+        try {
+            String sql = "WITH TotalPassUp AS(" +
+                            "SELECT " +
+                            "routeNum, " +
+                            "COUNT(*) AS totalPassUp " +
+                        "FROM PassUp " +
+                        "WHERE type = 'Wheelchair User Pass-Up' " +
+                        "GROUP BY routeNum) " +
+            
+                        "SELECT " +
+                        "Route.routeNum, " +
+                        "TotalPassUp.totalPassUp " +
+                        "FROM Route " + 
+                        "JOIN TotalPassUp ON Route.routeNum = TotalPassUp.routeNum " +
+                        "ORDER BY totalPassUp DESC;";
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()){
+                System.out.println("Route Number: " + resultSet.getString("routeNum") +
+                        ", Total Pass Up: " + resultSet.getString("totalPassUp"));
+            } else {
+                System.out.println("NOT FOUND!");
+            }
+            while (resultSet.next()) {
+                System.out.println("Route Number: " + resultSet.getString("routeNum") +
+                        ", Total Pass Up: " + resultSet.getString("totalPassUp"));
+            }
+            resultSet.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace(System.out);
+        }
+    }
+
+    public void getTopPassUpWheelchair(String num){
+        try {
+            if(!isNumber(num)){
+                System.out.println("Input needs to be a number.");
+                return;
+            }
+
+            String sql = "WITH TotalPassUp AS(" +
+                            "SELECT " +
+                            "routeNum, " +
+                            "COUNT(*) AS totalPassUp " +
+                        "FROM PassUp " +
+                        "WHERE type = 'Wheelchair User Pass-Up' " +
+                        "GROUP BY routeNum) " +
+            
+                        "SELECT TOP " + num + " " +
+                        "Route.routeNum, " +
+                        "TotalPassUp.totalPassUp " +
+                        "FROM Route " + 
+                        "JOIN TotalPassUp ON Route.routeNum = TotalPassUp.routeNum " +
+                        "ORDER BY totalPassUp DESC;";
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()){
+                System.out.println("Route Number: " + resultSet.getString("routeNum") +
+                        ", Total Pass Up: " + resultSet.getString("totalPassUp"));
+            } else {
+                System.out.println("NOT FOUND!");
+            }
+            while (resultSet.next()) {
+                System.out.println("Route Number: " + resultSet.getString("routeNum") +
+                        ", Total Pass Up: " + resultSet.getString("totalPassUp"));
+            }
+            resultSet.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace(System.out);
+        }
+    }
+
+    // 
     private static boolean isRouteNum(String str){
         return str != null && str.matches("(^[0-9]+$)|(^S[0-9]+$)");
     }

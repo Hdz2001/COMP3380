@@ -67,7 +67,34 @@ public class SQLServerProject {
 
             if (parts[0].equals("h"))
                 printHelp();
-            
+            else if (parts[0].equals("route")){
+                printRoute();
+            }
+            else if (parts[0].equals("bus")){
+                printBus();
+            }
+            else if (parts[0].equals("busStop")){
+                printBusStop();
+            }
+            else if (parts[0].equals("schedule")){
+                printSchedule();
+            }
+            else if (parts[0].equals("activity")){
+                printActivity();
+            }
+            else if (parts[0].equals("arrive")){
+                printArrive();
+            }
+            else if (parts[0].equals("passUp")){
+                printPassUp();
+            }
+            else if (parts[0].equals("comp")){
+                printComplicated();
+            }
+            else if (parts[0].equals("all")){
+                printAll();
+            }
+
             // ROUTE
             else if (parts[0].equals("r")) {
                 if (parts.length == 1){
@@ -306,7 +333,7 @@ public class SQLServerProject {
             }
 
             else
-                System.out.println("Read the help with h, or find help somewhere else.");
+                System.out.println("Read the help with h for commands.");
 
             System.out.print("db > ");
             line = console.nextLine();
@@ -315,7 +342,118 @@ public class SQLServerProject {
         console.close();
     }
 
+    private static void printRoute(){
+
+        System.out.println("---- Route table ----");
+        System.out.println("r - List all routes and name");
+        System.out.println("r [route number] - List route and name for a specific route");
+        System.out.println("rn [route name] - List route and name for a specific route name - SPACE NEEDED BETWEEN VALUES");
+        System.out.println("~ For example: rn St. Norbert / rn Kenaston/ rn St. Mary's Express");
+    }
+
+    private static void printBus(){
+
+        System.out.println("---- Bus table ----");
+        System.out.println("b - List all buses and destination");
+        System.out.println("b [bus number]- List bus and destination for a specific bus");
+        System.out.println("d - List all distinct destination");
+        System.out.println("d [destination] - List all buses going to a specific destination - SPACE NEEDED BETWEEN VALUES");
+        System.out.println("~ For example: d Polo Park / d To The Forks/ d Downtown (City Hall)");
+    }
+
+    private static void printBusStop(){
+
+        System.out.println("---- BusStop table ----");
+        System.out.println("s - List all bus stops and location");
+        System.out.println("s [stop number]- List bus stop and location for a specific bus stop");
+    }
+
+    private static void printSchedule(){
+
+        System.out.println("---- Schedule table ----");
+        System.out.println("sched - List all schedules, start and end date");
+        System.out.println("sched [input] - List all schedules from specific time period - it can be either season, year, or both - SPACE NEEDED BETWEEN VALUES");
+        System.out.println("~ For example: sched 2018 / sched Fall / sched Fall 2018");
+    }
+
+    private static void printActivity(){
+
+        System.out.println("---- Activity table ----");
+        System.out.println("a - List all Activities");
+        System.out.println("ac - Count the total number of activities for each route");
+        System.out.println("a [route number] - List all Activities for a specific route");
+        System.out.println("as [stop number] - List all Activities for a specific stop");
+        System.out.println("ad [day type] - List all Activities for a specific dayType and sort the results by timePeriod");
+        System.out.println("~ For example: ad Weekday / ad Saturday / ad Sunday");
+        System.out.println("at [input] - List all activities from specific time period - it can be either season, year, or both - SPACE NEEDED BETWEEN VALUES");
+        System.out.println("~ For example: at 2018 / at Fall / at Fall 2018");
+    }
+
+    private static void printArrive(){
+
+        System.out.println("---- Arrive table ----");
+        System.out.println("ar - List all Arrive, lastest first");
+        System.out.println("ar [bus number] - List all Arrive for a specific bus");
+        System.out.println("ard - List all instances where a bus deviated from the schedule");
+        System.out.println("art - Retrieve all unique bus-stop pairs with their total number of arrivals");
+    }
+
+    private static void printPassUp(){
+
+        System.out.println("---- PassUp table ----");
+        System.out.println("pu - List all Pass Up and sort by type");
+        System.out.println("pu [route number] - List all Pass Up for a specific route ordered by time DESC");
+        System.out.println("puy [year] - List all Pass Up for a specific year");
+    }
+
+    private static void printComplicated(){
+
+        System.out.println("---- Complicated Queries ----");
+        System.out.println("rinfo [route number] - List all information about a specific route");
+        System.out.println("stopBuses [stop number] - Find all buses arriving at a specific bus stop and their corresponding schedule information");
+        System.out.println("arSum - Detailed information about all bus arrivals and count of the number of arrivals for each bus, stop, and destination");
+        System.out.println("arSum [bus number] - Detailed information about bus arrivals and count of the number of arrivals for a specific bus");
+        System.out.println("arSumS [stop number] - Detailed information about bus arrivals and count of the number of arrivals for a stop number");
+        System.out.println("avgDev - Calculate the average deviation for each bus based on their latest arrival");
+        System.out.println("boardAct [day type] - Retrieve the total number of passengers for each route on specific day type");
+        System.out.println("boardActBus - Retrieve the total number of passengers for each route and bus stop");
+        System.out.println("boardActBus [bus number] - Retrieve the total number of passengers for a specific bus");
+        System.out.println("busiestStop - Retrieve the busiest bus stops based on the total number of passengers, DESC order");
+        System.out.println("busiestStop [number] - Retrieve the top [number] busiest bus stops based on the total number of passengers, DESC order");
+        System.out.println("topPuFull - Retrieve total pass-up type for Full Bus Pass-Up, DESC order");
+        System.out.println("topPuFull [number] - Retrieve top [number] total pass-up type for Full Bus Pass-Up, DESC order");
+        System.out.println("topPuWheel - Retrieve total pass-up type for Wheelchair User Pass-Up, DESC order");
+        System.out.println("topPuWheel [number] - Retrieve top [number] total pass-up type for Wheelchair User Pass-Up, DESC order");
+    }
+
     private static void printHelp() {
+        System.out.println("WELCOME TO THE TRANSIT DATABASE :)");
+        System.out.println("");
+
+        System.out.println("This database consists a total of 7 tables about bus details related information.");
+        System.out.println("User can get access to the datas with the commands below.");
+        System.out.println("");
+
+        System.out.println("Commands:");
+
+        System.out.println("route - Show commands for Route table");
+        System.out.println("bus - Show commands for Bus table");
+        System.out.println("busStop - Show commands for BusStop table");
+        System.out.println("schedule - Show commands for Schedule table");
+        System.out.println("activity - Show commands for Activity table");
+        System.out.println("arrive - Show commands for Arrive table");
+        System.out.println("passUp - Show commands for PassUp table");
+        System.out.println("comp - Show commands for more complicated queries");
+        System.out.println("all - Show all commands");
+        System.out.println("");
+
+        System.out.println("q - Exit the program");
+        System.out.println("---- end help ----- ");
+    }
+
+
+
+    private static void printAll() {
         System.out.println("TRANSIT DATABASE");
         System.out.println("");
 
@@ -633,9 +771,10 @@ class MyDatabase {
 
     public void getSchedule(String num) {
         try {
-            String sql = "SELECT * FROM Schedule WHERE scheName LIKE '%" + num + "%'";
+            String sql = "SELECT * FROM Schedule WHERE scheName LIKE ?";
 
             PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1,"%" + num + "%");
             ResultSet resultSet = statement.executeQuery();
 
             if (resultSet.next()){
@@ -777,9 +916,10 @@ class MyDatabase {
 
     public void getActivityScheTime(String num) {
         try {
-            String sql = "SELECT * FROM Activity WHERE scheName LIKE '%" + num + "%'";
+            String sql = "SELECT * FROM Activity WHERE scheName LIKE ?";
 
             PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, "%" + num + "%");
             ResultSet resultSet = statement.executeQuery();
 
             if (resultSet.next()){
@@ -991,9 +1131,10 @@ class MyDatabase {
                 System.out.println("Input need to be a year number.");
                 return;
             }
-            String sql = "SELECT * FROM PassUp WHERE time LIKE '%" + num + "%'";
+            String sql = "SELECT * FROM PassUp WHERE time LIKE ?";
 
             PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1,"%" + num + "%");
             ResultSet resultSet = statement.executeQuery();
 
             if (resultSet.next()){
@@ -1476,7 +1617,7 @@ class MyDatabase {
     public void getBusiestBusStop(String num){
         try {
             if(!isNumber(num)){
-                System.out.println("Input needs to be a number.");
+                System.out.println("Input needs to be a positive number.");
                 return;
             }
 
@@ -1487,7 +1628,7 @@ class MyDatabase {
                         "FROM Activity " +
                         "GROUP BY stopNum) " +
             
-                        "SELECT TOP " + num + " " +
+                        "SELECT TOP (?) " +
                         "BusStop.stopNum, " +
                         "BusStop.location, " +
                         "TotalPassengers.totalPassengers " +
@@ -1496,6 +1637,7 @@ class MyDatabase {
                         "ORDER BY TotalPassengers.totalPassengers DESC ";
 
             PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, Integer.valueOf(num));    
             ResultSet resultSet = statement.executeQuery();
 
             if (resultSet.next()){
@@ -1516,6 +1658,7 @@ class MyDatabase {
             e.printStackTrace(System.out);
         }
     }
+    
 
     // TOP PASS-UP
     public void getTopPassUpFullBus(){
@@ -1558,7 +1701,7 @@ class MyDatabase {
     public void getTopPassUpFullBus(String num){
         try {
             if(!isNumber(num)){
-                System.out.println("Input needs to be a number.");
+                System.out.println("Input needs to be a positive number.");
                 return;
             }
 
@@ -1570,7 +1713,7 @@ class MyDatabase {
                         "WHERE type = 'Full Bus Pass-Up' " +
                         "GROUP BY routeNum) " +
             
-                        "SELECT TOP " + num + " " +
+                        "SELECT TOP (?) " +
                         "Route.routeNum, " +
                         "TotalPassUp.totalPassUp " +
                         "FROM Route " + 
@@ -1578,6 +1721,7 @@ class MyDatabase {
                         "ORDER BY totalPassUp DESC;";
 
             PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, Integer.valueOf(num));    
             ResultSet resultSet = statement.executeQuery();
 
             if (resultSet.next()){
@@ -1637,7 +1781,7 @@ class MyDatabase {
     public void getTopPassUpWheelchair(String num){
         try {
             if(!isNumber(num)){
-                System.out.println("Input needs to be a number.");
+                System.out.println("Input needs to be a positive number.");
                 return;
             }
 
@@ -1649,7 +1793,7 @@ class MyDatabase {
                         "WHERE type = 'Wheelchair User Pass-Up' " +
                         "GROUP BY routeNum) " +
             
-                        "SELECT TOP " + num + " " +
+                        "SELECT TOP (?) " +
                         "Route.routeNum, " +
                         "TotalPassUp.totalPassUp " +
                         "FROM Route " + 
@@ -1657,6 +1801,7 @@ class MyDatabase {
                         "ORDER BY totalPassUp DESC;";
 
             PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, Integer.valueOf(num));    
             ResultSet resultSet = statement.executeQuery();
 
             if (resultSet.next()){

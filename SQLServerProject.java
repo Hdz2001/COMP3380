@@ -255,9 +255,24 @@ public class SQLServerProject {
                 db.getBusArrivalSummaryStop(parts[1]);
             }
 
+            else if (parts[0].equals("avgDev")) {
+                System.out.println("Executing...");
+                db.getAvgDev();
+            }
+
             else if (parts[0].equals("boardAct")) {
                 System.out.println("Executing...");
                 db.getBoardingSummaryDay(parts[1]);
+            }
+
+            else if (parts[0].equals("boardActBus")) {
+                if (parts.length == 1){
+                    System.out.println("Executing...");
+                    db.getBoardingSummaryRouteStop();
+                } else {
+                    System.out.println("Executing...");
+                    db.getBoardingSummaryRouteStop(parts[1]);
+                }
             }
 
             else if (parts[0].equals("busiestStop")) {
@@ -344,7 +359,7 @@ public class SQLServerProject {
         System.out.println("");
 
         System.out.println("---- Arrive table ----");
-        System.out.println("ar - List all Arrive");
+        System.out.println("ar - List all Arrive, lastest first");
         System.out.println("ar [bus number] - List all Arrive for a specific bus");
         System.out.println("ard - List all instances where a bus deviated from the schedule");
         System.out.println("art - Retrieve all unique bus-stop pairs with their total number of arrivals");
@@ -357,12 +372,15 @@ public class SQLServerProject {
         System.out.println("");
 
         System.out.println("---- Complicated Queries ----");
-        System.out.println("rinfo [route number] - List all information about a specific route including associated buses, schedule, and activities");
+        System.out.println("rinfo [route number] - List all information about a specific route");
         System.out.println("stopBuses [stop number] - Find all buses arriving at a specific bus stop and their corresponding schedule information");
         System.out.println("arSum - Detailed information about all bus arrivals and count of the number of arrivals for each bus, stop, and destination");
         System.out.println("arSum [bus number] - Detailed information about bus arrivals and count of the number of arrivals for a specific bus");
         System.out.println("arSumS [stop number] - Detailed information about bus arrivals and count of the number of arrivals for a stop number");
+        System.out.println("avgDev - Calculate the average deviation for each bus based on their latest arrival");
         System.out.println("boardAct [day type] - Retrieve the total number of passengers for each route on specific day type");
+        System.out.println("boardActBus - Retrieve the total number of passengers for each route and bus stop");
+        System.out.println("boardActBus [bus number] - Retrieve the total number of passengers for a specific bus");
         System.out.println("busiestStop - Retrieve the busiest bus stops based on the total number of passengers, DESC order");
         System.out.println("busiestStop [number] - Retrieve the top [number] busiest bus stops based on the total number of passengers, DESC order");
         System.out.println("topPuFull - Retrieve total pass-up type for Full Bus Pass-Up, DESC order");
@@ -830,7 +848,7 @@ class MyDatabase {
     // ARRIVE
     public void getArrive() {
         try {
-            String sql = "SELECT * FROM Arrive";
+            String sql = "SELECT * FROM Arrive ORDER BY scheTime DESC;";
 
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet resultSet = statement.executeQuery();
@@ -1297,6 +1315,122 @@ class MyDatabase {
             e.printStackTrace(System.out);
         }
     }
+
+    public void getBoardingSummaryRouteStop(){
+        try {
+            
+            String sql = "SELECT " +
+                    "Route.routeNum, " +
+                    "Activity.stopNum, " +
+                    "SUM(boardingNum) AS totalBoarding, " +
+                    "SUM(alightingNum) AS totalAlighting " +
+                "FROM Route " +
+                "JOIN Activity ON Route.routeNum = Activity.routeNum " +
+                "GROUP BY Route.routeNum, Activity.stopNum;";
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()){
+                System.out.println("Route Number: " + resultSet.getString("routeNum") +
+                        ", Stop Number: " + resultSet.getString("stopNum") +
+                        ", Total Boarding: " + resultSet.getString("totalBoarding") +
+                        ", Total Alighting: " + resultSet.getString("totalAlighting"));
+            } else {
+                System.out.println("NOT FOUND!");
+            }
+
+            while (resultSet.next()) {
+                System.out.println("Route Number: " + resultSet.getString("routeNum") +
+                        ", Stop Number: " + resultSet.getString("stopNum") +
+                        ", Total Boarding: " + resultSet.getString("totalBoarding") +
+                        ", Total Alighting: " + resultSet.getString("totalAlighting"));
+            }
+            resultSet.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace(System.out);
+        }
+    }
+
+    public void getBoardingSummaryRouteStop(String num){
+        try {
+            
+            String sql = "SELECT " +
+                    "Route.routeNum, " +
+                    "Activity.stopNum, " +
+                    "SUM(boardingNum) AS totalBoarding, " +
+                    "SUM(alightingNum) AS totalAlighting " +
+                "FROM Route " +
+                "JOIN Activity ON Route.routeNum = Activity.routeNum " +
+                "WHERE Route.routeNum = ? " +
+                "GROUP BY Route.routeNum, Activity.stopNum;";
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1,num);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()){
+                System.out.println("Route Number: " + resultSet.getString("routeNum") +
+                        ", Stop Number: " + resultSet.getString("stopNum") +
+                        ", Total Boarding: " + resultSet.getString("totalBoarding") +
+                        ", Total Alighting: " + resultSet.getString("totalAlighting"));
+            } else {
+                System.out.println("NOT FOUND!");
+            }
+
+            while (resultSet.next()) {
+                System.out.println("Route Number: " + resultSet.getString("routeNum") +
+                        ", Stop Number: " + resultSet.getString("stopNum") +
+                        ", Total Boarding: " + resultSet.getString("totalBoarding") +
+                        ", Total Alighting: " + resultSet.getString("totalAlighting"));
+            }
+            resultSet.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace(System.out);
+        }
+    }
+
+    // AVERAGE DEVIATIONS
+    public void getAvgDev(){
+        try {
+
+            String sql = "WITH LatestArrival AS (" +
+                            "SELECT " +
+                            "busNum, " +
+                            "stopNum, " +
+                            "MAX(scheTime) AS latestScheTime " +
+                        "FROM Arrive " +
+                        "GROUP BY busNum, stopNum) " +
+            
+                        "SELECT " +
+                        "A.busNum, " +
+                        "AVG(A.deviation) AS avgDeviation " +
+                        "FROM LatestArrival L " + 
+                        "JOIN Arrive A ON L.busNum = A.busNum AND L.stopNum = A.stopNum AND L.latestScheTime = A.scheTime " +
+                        "GROUP BY A.busNum;";
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()){
+                System.out.println("Bus Number: " + resultSet.getString("busNum") +
+                        ", Average Deviation: " + resultSet.getString("avgDeviation"));
+            } else {
+                System.out.println("NOT FOUND!");
+            }
+            while (resultSet.next()) {
+                System.out.println("Bus Number: " + resultSet.getString("busNum") +
+                        ", Average Deviation: " + resultSet.getString("avgDeviation"));
+            }
+            resultSet.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace(System.out);
+        }
+    }
+
 
     // BUSIEST BUS STOP 
     public void getBusiestBusStop(){

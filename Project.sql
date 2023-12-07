@@ -2,14 +2,14 @@ use cs3380;
 
 -- clean up
 -- Order matters!
-drop table if exists Route;
-drop table if exists Bus;
-drop table if exists BusStop;
-drop table if exists Schedule;
 drop table if exists RouteBus;
 drop table if exists Activity;
 drop table if exists Arrive;
 drop table if exists PassUp;
+drop table if exists Schedule;
+drop table if exists Route;
+drop table if exists Bus;
+drop table if exists BusStop;
 
 -- Route Table
 CREATE TABLE Route (

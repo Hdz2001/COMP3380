@@ -1,11 +1,13 @@
 Instructions to run the project: 
-1. Login to uranium and run the Project.sql in the server to populate the database with datas.
-2. Edit the auth.cfg with your username and password that you used to login to uranium.
+1. Edit the auth.cfg with your username and password that you used to login to uranium.
+* Username will be your username before @ in your school email.
+* Password will be either your student ID or password.
 * To save time, you can enter the following infos into auth.cfg:
   * username=trannh
   * password=7876849
-* This will bring you to my personal's uranium server, where all the data is already populated w/o errors and thus, you can skip step 1.
-4. Enter "make" in the command prompt to build the program.
-5. Enter "make run" after to run the program.
-* make clean is also included to clean up everything.  
-5. Instructions for queries are included in the program. Enjoy :)
+2. Enter "make" in the command prompt to build the program.
+3. Enter "make run" after to run the program.
+* make clean is also included to clean up everything.
+* every time the program is run, it will (re)populate the database.
+* Project.sql is also included in case anything goes wrong.
+4. Instructions for queries are included in the program. Enjoy :)

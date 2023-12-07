@@ -9,6 +9,8 @@ import java.sql.Statement;
 import java.sql.PreparedStatement;
 import java.util.Properties;
 import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.FileReader;
 
 public class SQLServerProject {
 
@@ -47,6 +49,34 @@ public class SQLServerProject {
                 + "loginTimeout=30;";
 
         // startup sequence
+        try (Connection connection = DriverManager.getConnection(connectionUrl);
+             BufferedReader reader = new BufferedReader(new FileReader("Project.sql"));
+             Statement statement = connection.createStatement()) {
+            
+            // connect to the server and populate the database
+            System.out.println("Populating the database...");
+
+            String line;
+            StringBuilder query = new StringBuilder();
+
+            while ((line = reader.readLine()) != null) {
+                // skip comments and empty lines
+                if (!line.trim().startsWith("--") && !line.trim().isEmpty()) {
+                    query.append(line);
+                    // if the line ends with a semicolon, execute the query
+                    if (line.trim().endsWith(";")) {
+                        statement.execute(query.toString());
+                        query.setLength(0); 
+                    } 
+                }
+            }
+
+            System.out.println("Database populated successfully!");
+
+        } catch (SQLException | java.io.IOException e) {
+            e.printStackTrace();
+        }
+
         MyDatabase db = new MyDatabase(connectionUrl);
         runConsole(db);
     }

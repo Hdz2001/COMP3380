@@ -5699,7 +5699,7 @@ INSERT INTO Schedule(scheName,startDate,endDate) VALUES ('Fall 2023','09/04/2023
 INSERT INTO Schedule(scheName,startDate,endDate) VALUES ('Winter 2023','12/13/2023 12:00:00 AM','04/17/2024 12:00:00 AM');
 INSERT INTO Schedule(scheName,startDate,endDate) VALUES ('Fall 2017','09/04/2017 12:00:00 AM','12/10/2017 12:00:00 AM');
 INSERT INTO Schedule(scheName,startDate,endDate) VALUES ('Spring 2017','04/18/2017 12:00:00 AM','09/02/2017 12:00:00 AM');
-INSERT INTO Schedule(scheName,startDate,endDate) VALUES ('Summer 2017','06/18/2023 12:00:00 AM','09/02/2023 12:00:00 AM');
+INSERT INTO Schedule(scheName,startDate,endDate) VALUES ('Summer 2017','06/18/2017 12:00:00 AM','09/02/2017 12:00:00 AM');
 
 -- insert activity
 INSERT INTO Activity(scheName,routeNum,stopNum,boardingNum,alightingNum,dayType,timePeriod) VALUES ('Fall 2020',32,10636,0.4,4.3,'Weekday','PM Peak');

@@ -1439,50 +1439,24 @@ class MyDatabase {
                 "BoardingActivity.totalBoarding, " +
                 "BoardingActivity.totalAlighting " +
             "FROM Route " +
-            "LEFT JOIN BoardingActivity ON Route.routeNum = BoardingActivity.routeNum;";
+            "INNER JOIN BoardingActivity ON Route.routeNum = BoardingActivity.routeNum;";
 
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, num);
             ResultSet resultSet = statement.executeQuery();
 
             if (resultSet.next()){
-                String boardingTotal = resultSet.getString("totalBoarding");
-                String alightingTotal = resultSet.getString("totalAlighting");
-
-                if (boardingTotal == null)
-                {
-                    boardingTotal = "N/A";
-                }
-
-                if (alightingTotal == null)
-                {
-                    alightingTotal = "N/A";
-                }
-
                 System.out.println("Route Number: " + resultSet.getString("routeNum") +
-                        ", Total Boarding: " + boardingTotal +
-                        ", Total Alighting: " + alightingTotal);
+                        ", Total Boarding: " + resultSet.getString("totalBoarding") +
+                        ", Total Alighting: " + resultSet.getString("totalAlighting"));
             } else {
                 System.out.println("NOT FOUND!");
             }
 
             while (resultSet.next()) {
-                String boardingTotal = resultSet.getString("totalBoarding");
-                String alightingTotal = resultSet.getString("totalAlighting");
-
-                if (boardingTotal == null)
-                {
-                    boardingTotal = "N/A";
-                }
-
-                if (alightingTotal == null)
-                {
-                    alightingTotal = "N/A";
-                }
-
                 System.out.println("Route Number: " + resultSet.getString("routeNum") +
-                        ", Total Boarding: " + boardingTotal +
-                        ", Total Alighting: " + alightingTotal);
+                        ", Total Boarding: " + resultSet.getString("totalBoarding") +
+                        ", Total Alighting: " + resultSet.getString("totalAlighting"));
             }
             resultSet.close();
             statement.close();

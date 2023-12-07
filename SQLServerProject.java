@@ -107,15 +107,19 @@ public class SQLServerProject {
             }
 
             else if (parts[0].equals("rn")) {
-                System.out.println("Executing...");
-                String[] clone = new String[parts.length-1];
+                if (parts.length == 1){
+                    System.out.println("Please add route name.");
+                } else {
+                    System.out.println("Executing...");
+                    String[] clone = new String[parts.length-1];
 
-                for (int i=0; i<clone.length; i++)
-                {
-                    clone[i] = parts[i+1];
+                    for (int i=0; i<clone.length; i++)
+                    {
+                        clone[i] = parts[i+1];
+                    }
+
+                    db.getRouteNumber(String.join(" ", clone));
                 }
-
-                db.getRouteNumber(String.join(" ", clone));
             }
 
             // BUS
@@ -190,8 +194,12 @@ public class SQLServerProject {
             }
 
             else if (parts[0].equals("as")) {
-                System.out.println("Executing...");
-                db.getActivityStopNum(parts[1]);   
+                if (parts.length == 1){
+                    System.out.println("Please add stop number.");
+                } else {
+                    System.out.println("Executing...");
+                    db.getActivityStopNum(parts[1]);  
+                }
             }
 
             else if (parts[0].equals("ac")) {
@@ -200,7 +208,9 @@ public class SQLServerProject {
             }
 
             else if (parts[0].equals("at")) {
-                if (parts.length == 2){
+                if (parts.length == 1){
+                    System.out.println("Please add time period.");
+                } else if (parts.length == 2){
                     System.out.println("Executing...");
                     db.getActivityScheTime(parts[1]);
                 }
@@ -213,8 +223,12 @@ public class SQLServerProject {
             }
 
             else if (parts[0].equals("ad")) {
-                System.out.println("Executing...");
-                db.getActivityDayType(parts[1]);   
+                if (parts.length == 1){
+                    System.out.println("Please add day type.");
+                } else {
+                    System.out.println("Executing...");
+                    db.getActivityDayType(parts[1]); 
+                }
             }
 
             // ARRIVE
@@ -252,19 +266,31 @@ public class SQLServerProject {
             }
 
             else if (parts[0].equals("puy")) {
-                System.out.println("Executing...");
-                db.getPassUpTime(parts[1]);
+                if (parts.length == 1){
+                    System.out.println("Please add year.");
+                } else {
+                    System.out.println("Executing...");
+                    db.getPassUpTime(parts[1]);
+                }
             }
 
             // COMPLICATED QUERIES
             else if (parts[0].equals("rinfo")) {
-                System.out.println("Executing...");
-                db.getRouteInfo(parts[1]);
+                if (parts.length == 1){
+                    System.out.println("Please add route number.");
+                } else {
+                    System.out.println("Executing...");
+                    db.getRouteInfo(parts[1]);
+                }
             }
 
             else if (parts[0].equals("stopBuses")) {
-                System.out.println("Executing...");
-                db.findBus(parts[1]);
+                if (parts.length == 1){
+                    System.out.println("Please add stop number.");
+                } else {
+                    System.out.println("Executing...");
+                    db.findBus(parts[1]);
+                }
             }
 
             else if (parts[0].equals("arSum")) {
@@ -278,8 +304,12 @@ public class SQLServerProject {
             }
 
             else if (parts[0].equals("arSumS")) {
-                System.out.println("Executing...");
-                db.getBusArrivalSummaryStop(parts[1]);
+                if (parts.length == 1){
+                    System.out.println("Please add stop number.");
+                } else {
+                    System.out.println("Executing...");
+                    db.getBusArrivalSummaryStop(parts[1]);
+                }
             }
 
             else if (parts[0].equals("avgDev")) {
@@ -288,8 +318,12 @@ public class SQLServerProject {
             }
 
             else if (parts[0].equals("boardAct")) {
-                System.out.println("Executing...");
-                db.getBoardingSummaryDay(parts[1]);
+                if (parts.length == 1){
+                    System.out.println("Please add day type.");
+                } else {
+                    System.out.println("Executing...");
+                    db.getBoardingSummaryDay(parts[1]);
+                }
             }
 
             else if (parts[0].equals("boardActBus")) {
